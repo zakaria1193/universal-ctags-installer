@@ -1,5 +1,14 @@
 #!/usr/bin/env sh
 
+
+sudo apt-get update && apt-get install -y --no-install-recommends \
+        autoconf \
+        automake \
+        gcc \
+        libc6-dev \
+        make \
+        pkg-config
+
 set -ex
 
 dist=$1
@@ -19,7 +28,9 @@ else
 fi
 
 make -j2
-make install
+sudo make install
 
 cd "$curr_dir"
 rm -rf "$work_dir"
+
+
